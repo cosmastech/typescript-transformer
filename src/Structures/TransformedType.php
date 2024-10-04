@@ -28,15 +28,15 @@ class TransformedType
         bool $inline = false,
         string $keyword = 'type',
         bool $trailingSemicolon = true,
-    ): self {
-        return new self($class, $name, $transformed, $missingSymbols ?? new MissingSymbolsCollection(), $inline, $keyword, $trailingSemicolon);
+    ): static {
+        return new static($class, $name, $transformed, $missingSymbols ?? new MissingSymbolsCollection(), $inline, $keyword, $trailingSemicolon);
     }
 
     public static function createInline(
         ReflectionClass $class,
         string $transformed,
         ?MissingSymbolsCollection $missingSymbols = null
-    ): self {
+    ): static {
         return new self($class, null, $transformed, $missingSymbols ?? new MissingSymbolsCollection(), true);
     }
 
